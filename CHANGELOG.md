@@ -1,3 +1,6 @@
+# v1.2.1
+- Fix compatibility with SMODS 1501a (now depends on at least 1221a)
+
 # v1.2.0
 - Add support for banning Poker Hands
 
