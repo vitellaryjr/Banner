@@ -163,7 +163,7 @@ payload = 'ref_table = BANNERMOD.create_poker_hand_ref_table(handname, $default)
 [[patches]]
 [patches.pattern]
 target = 'functions/misc_functions.lua'
-pattern = 'if not v.omit and not v.no_collection then'
+pattern = "if not v.omit and (not v.no_collection or (type(v.no_collection) == 'function' and not v:no_collection())) then"
 position = 'after'
 match_indent = true
 payload = '''
@@ -183,7 +183,7 @@ end
 [[patches]]
 [patches.pattern]
 target = 'functions/misc_functions.lua'
-pattern = "if v.set == 'Joker' and not v.no_collection and not v.omit then "
+pattern = "if v.set == 'Joker' and (not v.no_collection or (type(v.no_collection) == 'function' and not v:no_collection())) and not v.omit then "
 position = 'after'
 match_indent = true
 payload = '''
